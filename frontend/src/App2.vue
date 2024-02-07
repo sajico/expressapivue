@@ -9,21 +9,21 @@ const route = useRoute();
 const paramStore = useParam();
 const props = defineProps(['id']);
 
-const navigateToApp2 = () => {
-  store.setParam('appでセットしたparamだよ');
-  paramStore.actions.setParam('appでセットしたstoreParamだよ');
+const navigateToApp = () => {
+  store.setParam('app2でセットしたparamだよ');
+  paramStore.actions.setParam('app2でセットしたstoreParamだよ');
   router.push({
-    name: 'app2',
+    name: 'app',
     query: {
-      param_a: 'appからだよ',
+      param_a: 'app2からだよ',
     }
   });
 };
 
-const navigateToApp2_id = () => {
+const navigateToApp_id = () => {
   router.push({
-    name: 'app2_id',
-    params: { id: 123 },
+    name: 'app_id',
+    params: { id: 456 },
   });
 };
 
@@ -41,13 +41,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <router-link to="/app2">App2へ</router-link>
-  <div>App.vueです！</div>
+  <router-link to="/app">Appへ</router-link>
+  <div>App2.vueです！</div>
   <div>store.param = {{ store.param }}</div>
   <div>paramStore.param = {{ paramStore.store.param }}</div>
   <div>props.id = {{ props.id }}</div>
-  <button class="btn" @click="navigateToApp2">navigateToApp2</button>
-  <button class="btn" @click="navigateToApp2_id">navigateToApp2_id</button>
+  <button class="btn" @click="navigateToApp">navigateToApp</button>
+  <button class="btn" @click="navigateToApp_id">navigateToApp_id</button>
   <button class="btn" @click="gatTaskList">タスクリスト取得</button>
   <div>task の数は {{ data.taskList.length }} です。</div>
   <table>
