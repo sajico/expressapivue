@@ -12,7 +12,7 @@ const message = 'Backend listening on '
 // frontendのページにこのサーバーとのデータ共有を許可する
 const cors = require('cors');
 app.use(cors({
-    origin: 'http://127.0.0.1:5173',
+    origin: ['http://127.0.0.1:5173','http://localhost:5173','http://localhost:4173'],
     optionsSuccessStatus: 200
 }));
 
